@@ -38,6 +38,12 @@ AI agent skills for social media content strategy, creation, and analysis across
 | [content-pattern-analyzer-sms](skills/content-pattern-analyzer-sms/) | Identifies which content types, topics, and formats perform best        |
 | [optimization-advisor-sms](skills/optimization-advisor-sms/)         | Recommends specific improvements based on performance data and patterns |
 
+### Automation
+
+| Skill                                                                  | Description                                                                                         |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [hermes-tweet-x-automation-sms](skills/hermes-tweet-x-automation-sms/) | Searches Twitter/X, monitors tweets, exports followers, and gates posts, replies, and DMs through Hermes Tweet |
+
 ## Installation
 
 ### Option 1: CLI Install (Recommended)
@@ -137,6 +143,15 @@ npx skillkit install blacktwist/social-media-skills --list
 When BlackTwist is not available, skills fall back to advisory mode — generating content and instructions for manual posting.
 
 See [tools/REGISTRY.md](tools/REGISTRY.md) for the full tool reference.
+
+### Hermes Tweet (optional for Hermes Agent)
+
+[Hermes Tweet](https://github.com/Xquik-dev/hermes-tweet#readme) adds a Hermes
+Agent X/Twitter toolset for tweet search, user lookup, replies, monitors,
+follower exports, posting, replies, DMs, and other X actions. Use
+`hermes-tweet-x-automation-sms` when a Hermes Agent workflow needs X/Twitter
+data or approved X actions alongside the strategy, writing, and analysis skills
+in this repository.
 
 ## License
 
