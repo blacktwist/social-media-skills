@@ -16,7 +16,8 @@
     "performance-analyzer-sms",
     "audience-growth-tracker-sms",
     "content-pattern-analyzer-sms",
-    "optimization-advisor-sms"
+    "optimization-advisor-sms",
+    "hermes-tweet-x-automation-sms"
   ],
   "strict": false
 }
