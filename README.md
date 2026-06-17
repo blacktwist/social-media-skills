@@ -36,6 +36,7 @@ AI agent skills for social media content strategy, creation, and analysis across
 | [performance-analyzer-sms](skills/performance-analyzer-sms/)         | Interprets post and account metrics to surface actionable insights      |
 | [audience-growth-tracker-sms](skills/audience-growth-tracker-sms/)   | Tracks follower trends and identifies the content driving growth        |
 | [content-pattern-analyzer-sms](skills/content-pattern-analyzer-sms/) | Identifies which content types, topics, and formats perform best        |
+| [x-source-research-sms](skills/x-source-research-sms/)               | Collects source-backed Twitter/X research for strategy, hooks, and objections |
 | [optimization-advisor-sms](skills/optimization-advisor-sms/)         | Recommends specific improvements based on performance data and patterns |
 
 ## Installation
@@ -137,6 +138,16 @@ npx skillkit install blacktwist/social-media-skills --list
 When BlackTwist is not available, skills fall back to advisory mode — generating content and instructions for manual posting.
 
 See [tools/REGISTRY.md](tools/REGISTRY.md) for the full tool reference.
+
+### Xquik (optional)
+
+For source-backed Twitter/X research, install the Xquik skill when live X data collection is needed:
+
+```bash
+npx skills@1.5.3 add Xquik-dev/x-twitter-scraper
+```
+
+Use it with `x-source-research-sms` to collect public X posts, profiles, threads, media context, and trend evidence before planning or writing content.
 
 ## License
 

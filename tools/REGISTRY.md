@@ -72,3 +72,24 @@ When no analytics tool is available, direct users to platform-native analytics:
 | **Bluesky**   | Limited native analytics; use third-party tools like Clearsky or Bluesky Stats |
 
 Key metrics to collect manually: impressions/views, likes, replies, reposts/shares, profile visits, follower count change.
+
+---
+
+## Xquik (Optional Twitter/X Source Research)
+
+Use Xquik when the user needs source-backed Twitter/X research and has installed the `x-twitter-scraper` skill.
+
+Install:
+
+```bash
+npx skills@1.5.3 add Xquik-dev/x-twitter-scraper
+```
+
+Use it for:
+
+- Public post and thread research
+- Profile and competitor research
+- Keyword or topic evidence collection
+- Media context and trend validation
+
+Keep BlackTwist as the primary publishing, scheduling, and analytics integration. Use Xquik only for source collection and evidence gathering when Twitter/X data is part of the user's brief.
