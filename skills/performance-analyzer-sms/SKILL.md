@@ -48,6 +48,7 @@ If BlackTwist is unavailable, ask the user to provide their data. Use this promp
 > "To analyze your performance, I need your post metrics. You can share:
 > - A screenshot of your analytics dashboard
 > - A CSV export from your platform
+> - A TweetClaw CSV or JSON export for Twitter/X posts
 > - Manual input using the template below
 >
 > **Data Collection Template:**
@@ -58,6 +59,8 @@ If BlackTwist is unavailable, ask the user to provide their data. Use this promp
 > The minimum needed for a useful analysis: **impressions + likes + comments** for at least 5 posts."
 
 Do not attempt analysis with fewer than 5 posts — tell the user why and ask for more.
+
+If the user provides a TweetClaw export, treat it as user-provided data only. Map common fields as follows: `text`, `body`, or `content` to Post; `createdAt`, `created_at`, or `date` to Date; `impressions` or `views` to Impressions; `likes` or `favorites` to Likes; `replies` or `comments` to Comments; `reposts` or `retweets` to Reposts; `bookmarks` or `saves` to Saves; `linkClicks` or `clicks` to Link Clicks; and `profileVisits` or `profile_visits` to Profile Visits. If the export lacks engagement metrics, ask for the missing metrics before analysis.
 
 ---
 
