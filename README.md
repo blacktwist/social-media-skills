@@ -136,6 +136,8 @@ npx skillkit install blacktwist/social-media-skills --list
 
 When BlackTwist is not available, skills fall back to advisory mode — generating content and instructions for manual posting.
 
+For analysis workflows, skills can also use user-provided platform exports such as TweetClaw CSV or JSON files as manual input.
+
 See [tools/REGISTRY.md](tools/REGISTRY.md) for the full tool reference.
 
 ## License

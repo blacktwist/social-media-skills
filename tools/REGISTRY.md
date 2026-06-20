@@ -72,3 +72,13 @@ When no analytics tool is available, direct users to platform-native analytics:
 | **Bluesky**   | Limited native analytics; use third-party tools like Clearsky or Bluesky Stats |
 
 Key metrics to collect manually: impressions/views, likes, replies, reposts/shares, profile visits, follower count change.
+
+## Optional User-Provided Exports
+
+Use these only when the user already provides the export. Do not call external APIs from a skill unless the user has explicitly configured the matching tool.
+
+| Source        | Use Case                                                                          |
+| ------------- | --------------------------------------------------------------------------------- |
+| **TweetClaw** | Twitter/X post or account exports for performance analysis and pattern discovery |
+
+For TweetClaw CSV or JSON exports, treat the file as manual analytics input. Map text/body/content, createdAt/date, impressions/views, likes/favorites, replies/comments, reposts/retweets, bookmarks/saves, link clicks, and profile visits when those fields are present.
