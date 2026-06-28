@@ -60,6 +60,34 @@ Tools for account configuration, team, and subscription management.
 
 ---
 
+## TweetClaw (Optional OpenClaw)
+
+[TweetClaw](https://github.com/Xquik-dev/tweetclaw) is an optional OpenClaw plugin for Twitter/X research and reviewed action workflows. Use it only when the user's agent environment already runs OpenClaw, `@xquik/tweetclaw` is installed, and the user has enabled the `explore` and `tweetclaw` tools.
+
+Good fit for these skills:
+
+| Workflow                                      | How TweetClaw helps                                                                 |
+| --------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Source checks before writing Twitter/X posts  | Search tweets, replies, profiles, and public context before drafting                 |
+| Performance or reply review                   | Pull reply and engagement context before interpreting what resonated                 |
+| Giveaway evidence                             | Export followers, collect replies, and run draws with explicit user review           |
+| Draft handoff                                 | Prepare a reviewed TweetClaw draft or reply request while keeping publishing gated   |
+
+Boundaries:
+
+- BlackTwist remains the primary publishing, scheduling, and analytics integration for this skill set.
+- TweetClaw should not run unattended publishing or background actions.
+- Write-like, paid, private, recurring, monitor, webhook, and account-scoped TweetClaw calls require OpenClaw approval.
+- If TweetClaw is unavailable, stay in advisory mode or use BlackTwist when connected.
+
+Install reference:
+
+```bash
+openclaw plugins install npm:@xquik/tweetclaw
+```
+
+---
+
 ## Platform Native Analytics (Manual Fallback)
 
 When no analytics tool is available, direct users to platform-native analytics:
