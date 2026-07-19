@@ -46,7 +46,7 @@ for skill_file in "$SKILLS_DIR"/*/SKILL.md; do
   frontmatter="$(awk '/^---/{count++; if(count==2) exit; next} count==1' "$skill_file")"
 
   # --- name field ---
-  name_value="$(echo "$frontmatter" | grep '^name:' | sed 's/^name:[[:space:]]*//' | tr -d '"'"'" | head -1)"
+  name_value="$(echo "$frontmatter" | grep '^name:' | sed 's/^name:[[:space:]]*//' | tr -d '"'"'" | head -1 || true)"
 
   if [[ -z "$name_value" ]]; then
     fail "Missing 'name' field in frontmatter"
@@ -61,12 +61,12 @@ for skill_file in "$SKILLS_DIR"/*/SKILL.md; do
     fi
 
     if [[ "$name_value" != "$skill_name" ]]; then
-      warn "name '$name_value' does not match directory name '$skill_name'"
+      fail "name '$name_value' does not match directory name '$skill_name'"
     fi
   fi
 
   # --- description field ---
-  desc_value="$(echo "$frontmatter" | grep '^description:' | sed 's/^description:[[:space:]]*//' | tr -d '"'"'" | head -1)"
+  desc_value="$(echo "$frontmatter" | grep '^description:' | sed 's/^description:[[:space:]]*//' | tr -d '"'"'" | head -1 || true)"
 
   if [[ -z "$desc_value" ]]; then
     fail "Missing 'description' field in frontmatter"
@@ -82,12 +82,12 @@ for skill_file in "$SKILLS_DIR"/*/SKILL.md; do
   fi
 
   # --- metadata.version field ---
-  version_value="$(echo "$frontmatter" | grep -A5 '^metadata:' | grep 'version:' | sed 's/.*version:[[:space:]]*//' | tr -d '"'"'" | head -1)"
+  version_value="$(echo "$frontmatter" | grep -A5 '^metadata:' | grep 'version:' | sed 's/.*version:[[:space:]]*//' | tr -d '"'"'" | head -1 || true)"
 
   if [[ -z "$version_value" ]]; then
-    warn "Missing metadata.version in frontmatter"
-  elif ! echo "$version_value" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+'; then
-    warn "metadata.version '$version_value' does not look like semver (e.g. 1.0.0)"
+    fail "Missing metadata.version in frontmatter"
+  elif ! echo "$version_value" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+    fail "metadata.version '$version_value' is not semver (e.g. 1.0.0)"
   else
     pass "metadata.version '$version_value' looks like semver"
   fi

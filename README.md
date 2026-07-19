@@ -138,6 +138,18 @@ When BlackTwist is not available, skills fall back to advisory mode — generati
 
 See [tools/REGISTRY.md](tools/REGISTRY.md) for the full tool reference.
 
+### TweetClaw (optional X/Twitter evidence)
+
+[TweetClaw](https://github.com/Xquik-dev/tweetclaw) is an optional OpenClaw plugin for X/Twitter-specific source data. Use it when analytics or growth workflows need tweet search, reply search, user lookup, follower export, monitor events, media context, or giveaway evidence that is not available through BlackTwist. Keep BlackTwist as the primary publishing and scheduling integration.
+
+Install it from Xquik's verified ClawHub publisher scope:
+
+```bash
+openclaw plugins install clawhub:@xquik/tweetclaw
+```
+
+Xquik is an independent third-party service. Not affiliated with X Corp. "Twitter" and "X" are trademarks of X Corp.
+
 ## License
 
 MIT — see [LICENSE](LICENSE) for details.

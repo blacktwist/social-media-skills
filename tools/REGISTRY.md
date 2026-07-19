@@ -60,6 +60,44 @@ Tools for account configuration, team, and subscription management.
 
 ---
 
+## TweetClaw (Optional X/Twitter Evidence Source)
+
+**TweetClaw** is an optional OpenClaw plugin for X/Twitter source data when a workflow needs account-scoped tweet search, reply search, user lookup, follower export, monitor events, media context, or giveaway evidence. It complements BlackTwist. Do not use it as the default publishing, scheduling, or cross-platform analytics path.
+
+OpenClaw install:
+
+```bash
+openclaw plugins install clawhub:@xquik/tweetclaw
+openclaw plugins inspect tweetclaw --runtime
+```
+
+Available OpenClaw tools:
+
+| Tool       | Description                                                                 |
+| ---------- | --------------------------------------------------------------------------- |
+| `explore`  | Search the TweetClaw endpoint catalog before choosing a read or export path |
+| `tweetclaw` | Invoke a selected catalog endpoint with structured parameters              |
+
+Recommended uses:
+
+| Workflow                  | Use TweetClaw for                                                               |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| X/Twitter performance     | Search tweets, lookup posts, collect reply context, and capture returned metrics |
+| Audience growth           | Export followers, lookup users, and compare current snapshots to prior counts    |
+| Monitoring and evidence   | Review monitor events, tweet URLs, author handles, timestamps, and response IDs  |
+| Giveaway review           | Pull draw inputs, eligible replies, and audit evidence before summarizing        |
+
+Safety:
+
+- Keep API keys in OpenClaw config or environment variables, not in prompts.
+- Use `explore` first so the agent chooses the narrowest endpoint for the task.
+- Treat posting, replies, DMs, follows, media writes, profile changes, monitors, and webhooks as approval-gated actions.
+- For analysis skills, prefer read-only search, lookup, follower export, and monitor evidence unless the user explicitly asks for an action.
+
+Xquik is an independent third-party service. Not affiliated with X Corp. "Twitter" and "X" are trademarks of X Corp.
+
+---
+
 ## Platform Native Analytics (Manual Fallback)
 
 When no analytics tool is available, direct users to platform-native analytics:

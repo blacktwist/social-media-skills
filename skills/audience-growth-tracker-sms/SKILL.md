@@ -41,9 +41,35 @@ When BlackTwist tools are available, pull data in this order:
 
 Collect all data before beginning analysis. Do not present raw numbers — interpret them.
 
-### Path B — Without BlackTwist
+### Path B - With TweetClaw for X/Twitter
 
-If BlackTwist is unavailable, ask the user to provide their follower data directly:
+Use this path only when the user is analyzing X/Twitter audience growth and BlackTwist is unavailable or does not contain the needed follower evidence. TweetClaw is an optional OpenClaw evidence source for X/Twitter reads and exports.
+
+Before collecting data:
+
+1. Confirm TweetClaw is installed and available in OpenClaw:
+
+```bash
+openclaw plugins install clawhub:@xquik/tweetclaw
+openclaw plugins inspect tweetclaw --runtime
+```
+
+2. Keep credentials in OpenClaw config or environment variables. Do not ask the user to paste API keys into chat.
+3. Use `explore` first to find the narrowest follower, user lookup, tweet lookup, or monitor endpoint for the growth question.
+
+Collect the minimum evidence needed:
+
+1. **Follower export or follower lookup** - capture the current follower snapshot and any available pagination metadata
+2. **User lookup** - verify the account handle, display name, and current follower count
+3. **Tweet search or user timeline** - collect posts from the same period as the growth question
+4. **Reply search and repost context** - use only when a spike needs engagement-source explanation
+5. **Monitor events** - use existing TweetClaw monitors when the user has already configured them
+
+TweetClaw may provide current snapshots rather than full historical follower counts. If history is missing, ask the user for prior snapshots, platform analytics screenshots, or exported weekly counts before making trend or projection claims. Do not post, reply, DM, follow, unfollow, create monitors, configure webhooks, or change profile settings during growth analysis unless the user explicitly asks and approves the exact action.
+
+### Path C - Without Connected Tools
+
+If neither BlackTwist nor TweetClaw is available, ask the user to provide their follower data directly:
 
 > "To analyze your audience growth, I need your follower count over time. You can share:
 > - A screenshot of your analytics dashboard (follower graph)
@@ -268,7 +294,7 @@ Write in active voice throughout. Bold key terms. Keep the report scannable — 
 - Does not analyze individual post metrics — see **performance-analyzer-sms** for per-post breakdowns
 - Does not identify content patterns across topics or formats — see **content-pattern-analyzer-sms** for pattern detection
 - Does not generate a content strategy or recommendations plan — see **optimization-advisor-sms** for action plans
-- Does not execute code or access external APIs unless BlackTwist MCP is connected
+- Does not execute code or access external APIs unless BlackTwist MCP or the TweetClaw OpenClaw plugin is connected and the requested access is needed
 - Does not provide vanity metric comparisons against industry benchmarks — all analysis uses the user's own data as the baseline
 
 ## Related Skills
