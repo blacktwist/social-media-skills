@@ -41,9 +41,35 @@ When BlackTwist tools are available, pull data in this order:
 
 Collect all data before beginning analysis. Do not present raw numbers to the user — interpret them.
 
-### Path B — Without BlackTwist
+### Path B - With TweetClaw for X/Twitter
 
-If BlackTwist is unavailable, ask the user to provide their data. Use this prompt:
+Use this path only when the user is analyzing X/Twitter and BlackTwist is unavailable or does not contain the needed post history. TweetClaw is an optional OpenClaw evidence source, not the default publishing path.
+
+Before collecting data:
+
+1. Confirm TweetClaw is installed and available in OpenClaw:
+
+```bash
+openclaw plugins install clawhub:@xquik/tweetclaw
+openclaw plugins inspect tweetclaw --runtime
+```
+
+2. Keep credentials in OpenClaw config or environment variables. Do not ask the user to paste API keys into chat.
+3. Use `explore` first to find the narrowest read-only endpoint for the requested analysis.
+
+Collect the minimum evidence needed:
+
+1. **Tweet search or user timeline** - retrieve recent X/Twitter posts for the analysis window
+2. **Tweet lookup** - collect post IDs, URLs, timestamps, text, and any returned public metrics
+3. **Reply search** - collect reply context for posts where comments explain performance
+4. **Monitor events** - use only when the user already has TweetClaw monitors configured
+5. **Media context** - use media metadata only when visual assets affect the performance question
+
+Do not post, reply, DM, follow, delete, create monitors, configure webhooks, or change profile settings during analysis unless the user explicitly asks and approves the exact action. If TweetClaw returns only current snapshots, say that clearly and ask for historical exports or screenshots before making trend claims.
+
+### Path C - Without Connected Tools
+
+If neither BlackTwist nor TweetClaw is available, ask the user to provide their data. Use this prompt:
 
 > "To analyze your performance, I need your post metrics. You can share:
 > - A screenshot of your analytics dashboard
@@ -220,7 +246,7 @@ Keep the report scannable. Use bold for key terms. Avoid tables with more than 5
 - Does not detect cross-post content patterns — see **content-pattern-analyzer-sms** for pattern detection across many posts
 - Does not generate a prioritized action plan — see **optimization-advisor-sms** for concrete next steps
 - Does not write or draft content — see **post-writer-sms** for content creation
-- Does not execute code or access external APIs unless BlackTwist MCP is connected
+- Does not execute code or access external APIs unless BlackTwist MCP or the TweetClaw OpenClaw plugin is connected and the requested access is needed
 - Does not cite industry benchmarks unless explicitly requested — all comparisons use the user's own averages
 
 ## Related Skills
