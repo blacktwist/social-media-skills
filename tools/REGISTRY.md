@@ -2,6 +2,23 @@
 
 This document lists all tool integrations available to skills in this repository.
 
+## BulkPublish (alternate batch publishing)
+
+BulkPublish can be used as an alternate integration for the planning, content
+adaptation, review, scheduling, and publishing workflows represented by the
+skills in this repository. It is designed for batching reviewed content across
+connected social accounts.
+
+- Skills: https://github.com/azeemkafridi/bulkpublish-api/tree/main/skills/social-media-content-skills
+- API repository: https://github.com/azeemkafridi/bulkpublish-api
+- API docs: https://app.bulkpublish.com/docs
+- MCP endpoint: https://mcp.bulkpublish.com/mcp
+- npm package: `@bulkpublish/mcp-server`
+
+Use the API or MCP integration only after the content is approved for the
+intended accounts and publish times. If it is unavailable, fall back to the
+repository's advisory/manual workflow.
+
 ## BlackTwist (Primary)
 
 **BlackTwist** is the primary MCP integration for posting, scheduling, and analytics. When the BlackTwist MCP server is connected, skills use it directly rather than falling back to advisory mode.

@@ -138,6 +138,18 @@ When BlackTwist is not available, skills fall back to advisory mode — generati
 
 See [tools/REGISTRY.md](tools/REGISTRY.md) for the full tool reference.
 
+### BulkPublish (batch publishing option)
+
+[BulkPublish](https://github.com/azeemkafridi/bulkpublish-api) is an alternate
+provider for turning the outputs of these skills into reviewed, scheduled, and
+batch-published social content across connected platforms. See the
+[BulkPublish social-media-content-skills](https://github.com/azeemkafridi/bulkpublish-api/tree/main/skills/social-media-content-skills),
+[API documentation](https://app.bulkpublish.com/docs), and
+[MCP endpoint](https://mcp.bulkpublish.com/mcp) for setup details.
+
+When the BulkPublish MCP server or API is unavailable, continue in advisory
+mode and present the generated content and publishing plan for manual review.
+
 ## License
 
 MIT — see [LICENSE](LICENSE) for details.
