@@ -1,0 +1,12 @@
+interface:
+  display_name: "Hook Writer"
+  short_description: "Write opening lines and hooks that stop the scroll"
+  default_prompt: "Use $hook-writer-sms to write hooks for my post."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "blacktwist"
+      description: "BlackTwist MCP server for the social media profile, posting, scheduling, and analytics"
+      transport: "streamable_http"
+      url: "https://blacktwist.app/api/mcp"

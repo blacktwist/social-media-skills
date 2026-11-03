@@ -1,0 +1,12 @@
+interface:
+  display_name: "Content Calendar"
+  short_description: "Build a posting schedule and content calendar"
+  default_prompt: "Use $content-calendar-sms to plan my posting schedule and content calendar."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "blacktwist"
+      description: "BlackTwist MCP server for the social media profile, posting, scheduling, and analytics"
+      transport: "streamable_http"
+      url: "https://blacktwist.app/api/mcp"

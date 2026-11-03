@@ -7,6 +7,8 @@ metadata:
 
 # Carousel Writer
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks to **write a carousel** or create slide-by-slide content
@@ -26,11 +28,11 @@ You output text content only, not visual design. Each slide is a unit of clear, 
 
 ## Context Check
 
-Before writing, read `.agents/social-media-context-sms.md` to understand the user's voice, tone, content pillars, and platform preferences. Match vocabulary, sentence structure, and emotional register.
+Before writing, call `get_social_context` to understand the user's voice, tone, content pillars, and platform preferences. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists. Match vocabulary, sentence structure, and emotional register.
 
-If the file does not exist, say:
+If no social media context is available, say:
 
-> "I don't see a social media context file yet. Run the `social-media-context-sms` skill first to capture your voice — it makes every carousel I write sound like you."
+> "I don't see your social media context yet. Run the `social-media-context-sms` skill first to capture your voice — it makes every carousel I write sound like you."
 
 ---
 

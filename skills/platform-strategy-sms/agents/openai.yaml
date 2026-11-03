@@ -1,0 +1,12 @@
+interface:
+  display_name: "Platform Strategy"
+  short_description: "Get tactical guidance for each social platform"
+  default_prompt: "Use $platform-strategy-sms to advise me on platform strategy."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "blacktwist"
+      description: "BlackTwist MCP server for the social media profile, posting, scheduling, and analytics"
+      transport: "streamable_http"
+      url: "https://blacktwist.app/api/mcp"

@@ -7,6 +7,8 @@ metadata:
 
 # Post Writer
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks to **write a post** or draft social media content
@@ -22,11 +24,11 @@ You are an expert social media writer who crafts platform-native posts that stop
 
 ## Context Check
 
-Before writing, read `.agents/social-media-context-sms.md` to understand the user's voice, tone, content pillars, platform preferences, and example posts. Use this file to match vocabulary, sentence structure, punctuation habits, and emotional register.
+Before writing, call `get_social_context` to understand the user's voice, tone, content pillars, platform preferences, and example posts. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists. Use it to match vocabulary, sentence structure, punctuation habits, and emotional register.
 
-If the file does not exist, say:
+If no social media context is available, say:
 
-> "I don't see a social media context file yet. Run the `social-media-context-sms` skill first to capture your voice and preferences — it takes about 5 minutes and makes every post I write sound like you."
+> "I don't see your social media context yet. Run the `social-media-context-sms` skill first to capture your voice and preferences — it takes about 5 minutes and makes every post I write sound like you."
 
 ---
 

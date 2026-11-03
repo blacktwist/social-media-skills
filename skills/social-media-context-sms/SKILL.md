@@ -1,9 +1,11 @@
 ---
 name: social-media-context-sms
-description: "When the user wants to set up or update their social media profile, voice, audience, content pillars, or platform preferences. Also use when the user mentions 'set up context,' 'my voice,' 'my audience,' 'content pillars,' 'brand voice,' 'who I'm writing for,' 'social media profile,' or wants to avoid repeating foundational information across social media tasks. Use this at the start of any new project before using other social media skills — it creates .agents/social-media-context-sms.md that all other skills reference."
+description: "When the user wants to set up or update their social media profile, voice, audience, content pillars, or platform preferences. Also use when the user mentions 'set up context,' 'my voice,' 'my audience,' 'content pillars,' 'brand voice,' 'who I'm writing for,' 'social media profile,' or wants to avoid repeating foundational information across social media tasks. Use this at the start of any new project before using other social media skills — it creates the social media profile that all other skills reference."
 metadata:
   version: 1.0.0
 ---
+
+Explicit instructions from the user take priority over the guidance in this skill.
 
 ## When to Use
 
@@ -18,22 +20,22 @@ metadata:
 
 You are an expert social media strategist and content coach. Your job is to help the user define their social media identity once — so every other skill can write in their voice, for their audience, without them repeating themselves.
 
-This skill creates or updates `.agents/social-media-context-sms.md`, a persistent context file that all other social media skills read before doing anything. It is the single source of truth for who the user is, who they write for, and how they sound.
+This skill creates or updates the user's social media profile, a persistent context that all other social media skills read before doing anything. The profile is stored in BlackTwist and read with `get_social_context`. It is the single source of truth for who the user is, who they write for, and how they sound.
 
 ---
 
 ## Step 1 — Check for existing context
 
-Before doing anything else, check if `.agents/social-media-context-sms.md` already exists.
+Before doing anything else, call `get_social_context`. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists.
 
-**If it exists:**
-1. Read the file in full.
+**If a profile exists:**
+1. Read it in full.
 2. Summarize what is already captured (2–3 sentences).
 3. Ask: "What would you like to update? You can update a specific section, add missing information, or review the whole file."
 4. Apply only the requested changes — do not regenerate sections the user did not ask to change.
-5. Update the `last_updated` field at the top of the file.
+5. Update the `last_updated` field at the top of the profile.
 
-**If it does not exist:**
+**If no profile exists:**
 Proceed to Step 2.
 
 ---
@@ -204,7 +206,7 @@ Content types to avoid: Memes, engagement-bait polls, "agree?" one-liners
 
 ## Step 4 — Write the context file
 
-Once you have enough information (at minimum: identity, audience, voice, and at least one platform), create or update `.agents/social-media-context-sms.md` using this exact template:
+Once you have enough information (at minimum: identity, audience, voice, and at least one platform), create or update the profile using this exact template:
 
 ```markdown
 # Social Media Context
@@ -294,11 +296,11 @@ last_updated: YYYY-MM-DD
 
 After drafting:
 
-1. Show the user the full file contents.
+1. Show the user the full profile.
 2. Ask: "Does this capture your context accurately? Any sections to adjust?"
 3. Apply revisions.
-4. Save to `.agents/social-media-context-sms.md`.
-5. Confirm: "Context saved. All other social media skills will now read from this file."
+4. Show the profile to the user, ask for approval, then call `set_social_context` with the full Markdown. If BlackTwist is not connected, save to `.agents/social-media-context-sms.md`.
+5. Confirm: "Context saved. All other social media skills will now read from this profile."
 
 ---
 
@@ -306,7 +308,7 @@ After drafting:
 
 The user can update any section at any time by running this skill again. When updating:
 
-- Read the existing file first.
+- Read the existing profile first.
 - Ask which section needs updating.
 - Edit only that section — leave the rest untouched.
 - Update the `last_updated` date.

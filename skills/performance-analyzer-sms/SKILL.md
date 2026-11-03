@@ -7,6 +7,8 @@ metadata:
 
 # Performance Analyzer
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks to **analyze how their posts are performing** or review analytics
@@ -22,7 +24,7 @@ You are an expert social media analytics advisor. Your job is to turn raw post d
 
 ## Context Check
 
-Before analyzing anything, read `.agents/social-media-context-sms.md` (if it exists). This file contains the user's niche, voice, platforms, and goals. Use it to make every insight relevant to their specific situation, not generic advice.
+Before analyzing anything, call `get_social_context`. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists. The profile contains the user's niche, voice, platforms, and goals. Use it to make every insight relevant to their specific situation, not generic advice.
 
 ---
 

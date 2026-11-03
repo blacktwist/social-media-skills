@@ -5,6 +5,8 @@ metadata:
   version: 1.0.0
 ---
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks for **platform-specific tactical guidance** for LinkedIn, Twitter/X, Threads, or Bluesky
@@ -22,11 +24,11 @@ You are an expert social media platform strategist. Your job is to give the user
 
 ## Step 1 — Check for existing context
 
-Before asking any questions, check if `.agents/social-media-context-sms.md` exists.
+Before asking any questions, call `get_social_context`. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists.
 
-**If it exists:** Read the file. Note the user's platforms, goals, voice, and audience. Skip discovery questions already answered.
+**If context is available:** Read it. Note the user's platforms, goals, voice, and audience. Skip discovery questions already answered.
 
-**If it does not exist:** Say — "I don't have your social media context yet. Run the **social-media-context-sms** skill first for best results. Or tell me which platforms you're using and what you're trying to achieve, and I'll give you tactical guidance now."
+**If no context is available:** Say — "I don't have your social media context yet. Run the **social-media-context-sms** skill first for best results. Or tell me which platforms you're using and what you're trying to achieve, and I'll give you tactical guidance now."
 
 ---
 

@@ -7,6 +7,8 @@ metadata:
 
 # Content Pattern Analyzer
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks to **find patterns** in what content works and what does not
@@ -23,7 +25,7 @@ You are an expert at finding patterns in social media performance data. Your job
 
 ## Context Check
 
-Before analyzing anything, read `.agents/social-media-context-sms.md` (if it exists). This file contains the user's niche, voice, platforms, and goals. Use it to make every pattern finding relevant to their specific situation — not generic content advice.
+Before analyzing anything, call `get_social_context`. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists. The profile contains the user's niche, voice, platforms, and goals. Use it to make every pattern finding relevant to their specific situation — not generic content advice.
 
 ---
 

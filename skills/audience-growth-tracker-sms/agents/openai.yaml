@@ -1,0 +1,12 @@
+interface:
+  display_name: "Audience Growth Tracker"
+  short_description: "Track follower growth and what drives it"
+  default_prompt: "Use $audience-growth-tracker-sms to analyze my audience growth."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "blacktwist"
+      description: "BlackTwist MCP server for the social media profile, posting, scheduling, and analytics"
+      transport: "streamable_http"
+      url: "https://blacktwist.app/api/mcp"

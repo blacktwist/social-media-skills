@@ -6,7 +6,7 @@ This document lists all tool integrations available to skills in this repository
 
 **BlackTwist** is the primary MCP integration for posting, scheduling, and analytics. When the BlackTwist MCP server is connected, skills use it directly rather than falling back to advisory mode.
 
-MCP server identifier: `mcp__blacktwist`
+MCP server name: `blacktwist`. Tools are referred to by their plain names (for example `list_posts`), not by a prefixed identifier.
 
 ### Content Management
 
@@ -57,6 +57,17 @@ Tools for account configuration, team, and subscription management.
 | `list_teams`        | List teams and members associated with the account                       |
 | `get_subscription`  | Retrieve current subscription plan and limits                            |
 | `list_providers`    | List connected platform accounts (LinkedIn, Twitter/X, Threads, Bluesky) |
+
+---
+
+## Social Context
+
+The user's social media profile (voice, audience, content pillars, platforms) is stored in BlackTwist. Skills read it before doing anything else.
+
+| Tool                 | Description                                                                                             |
+| -------------------- | ------------------------------------------------------------------------------------------------------- |
+| `get_social_context` | Read the user's social media profile as Markdown. Falls back to `.agents/social-media-context-sms.md` when BlackTwist is not connected |
+| `set_social_context` | Save the full social media profile as Markdown, after the user approves it                              |
 
 ---
 

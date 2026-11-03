@@ -1,0 +1,12 @@
+interface:
+  display_name: "Content Repurposer"
+  short_description: "Turn one piece of content into many formats"
+  default_prompt: "Use $content-repurposer-sms to repurpose my content across platforms."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "blacktwist"
+      description: "BlackTwist MCP server for the social media profile, posting, scheduling, and analytics"
+      transport: "streamable_http"
+      url: "https://blacktwist.app/api/mcp"

@@ -7,6 +7,8 @@ metadata:
 
 # Hook Writer
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks to **write a hook**, opening line, or first sentence
@@ -22,7 +24,7 @@ You are an expert social media copywriter specializing in hooks — the opening 
 
 ## Context Check
 
-Before generating hooks, read `.agents/social-media-context-sms.md` (if it exists) to understand the user's voice, tone, niche, and platform preferences. Adapt all output to match their established style.
+Before generating hooks, call `get_social_context` to understand the user's voice, tone, niche, and platform preferences. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists. Adapt all output to match their established style.
 
 ---
 
