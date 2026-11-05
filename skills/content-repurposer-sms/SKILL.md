@@ -7,6 +7,8 @@ metadata:
 
 # Content Repurposer
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks to **repurpose content** or turn one piece into multiple formats
@@ -22,11 +24,11 @@ You are an expert content repurposing strategist. You help creators extract maxi
 
 ## Context Check
 
-Before repurposing anything, read `.agents/social-media-context-sms.md` to understand the user's voice, tone, content pillars, and platform mix.
+Before repurposing anything, call `get_social_context` to understand the user's voice, tone, content pillars, and platform mix. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists.
 
-If the file does not exist, say:
+If no social media context is available, say:
 
-> "I don't see a social media context file yet. Run the `social-media-context-sms` skill first to capture your voice and platform preferences — it makes every derivative sound like you, not a bot."
+> "I don't see your social media context yet. Run the `social-media-context-sms` skill first to capture your voice and platform preferences — it makes every derivative sound like you, not a bot."
 
 ---
 

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "blacktwist",
+  "version": "1.0.0",
+  "description": "Schedule, edit and analyze Threads and Bluesky posts with BlackTwist, plus 14 skills for social media strategy, writing and performance analysis.",
+  "author": {
+    "name": "BlackTwist",
+    "email": "support@blacktwist.app",
+    "url": "https://blacktwist.app"
+  },
+  "homepage": "https://blacktwist.app",
+  "repository": "https://github.com/blacktwist/social-media-skills",
+  "license": "MIT",
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/social-media-context-sms/SKILL.md",
+      "interface": {
+        "displayName": "BlackTwist",
+        "shortDescription": "Schedule and analyze posts",
+        "longDescription": "BlackTwist connects ChatGPT to your Threads and Bluesky accounts so you can plan, schedule and review your social media from a conversation.\n\nWith your connected accounts you can:\n- Draft posts and threads and schedule them for a specific day and time.\n- Review, edit or reschedule your drafts and scheduled posts.\n- Check how your recent posts performed, including follower growth, posting consistency and daily recaps.\n- Find the best times to post based on your own audience activity.\n- Read and reply to comments on your posts.\n- Manage tags, time slots, follow-up replies and auto-repost settings.\n\nThe plugin also includes 14 skills that help you define your voice and audience, plan a content calendar, write posts, threads, carousels and captions, repurpose content, and turn your analytics into concrete next steps. Start by telling it about your voice and audience, and every later draft will reflect it.\n\nBlackTwist only acts on the accounts you have connected yourself. You sign in with your BlackTwist account the first time you use the plugin, and you stay in control of what gets published.",
+        "developerName": "BlackTwist",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://blacktwist.app",
+        "supportURL": "https://blacktwist.app/support",
+        "privacyPolicyURL": "https://blacktwist.app/privacy",
+        "termsOfServiceURL": "https://blacktwist.app/terms",
+        "defaultPrompt": [
+          "Schedule a Threads post for tomorrow at 9am",
+          "How did my posts perform this week?",
+          "Set up my social media voice and audience"
+        ],
+        "brandColor": "#000000",
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/composer-icon.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Schedule a post on a connected Threads account",
+              "prompt": "Schedule a Threads post saying 'Shipping our new analytics today' for tomorrow at 9am",
+              "tools_triggered": ["list_providers", "create_post"],
+              "expected_behavior": "A scheduled thread is created on the test account for tomorrow at 9am."
+            },
+            {
+              "description": "Weekly performance summary",
+              "prompt": "How did my Threads posts perform over the last 7 days?",
+              "tools_triggered": ["list_providers", "get_metric_timeseries", "get_post_analytics"],
+              "expected_behavior": "A summary of the last 7 days with real numbers from the test account."
+            },
+            {
+              "description": "Best time to post",
+              "prompt": "When is the best time for me to post?",
+              "tools_triggered": ["list_providers", "get_best_time_to_post"],
+              "expected_behavior": "Specific days and hours are recommended based on the account's own data."
+            },
+            {
+              "description": "Reschedule a draft",
+              "prompt": "Show my drafts and move the newest one to Friday at 6pm",
+              "tools_triggered": ["list_drafts", "reschedule_thread"],
+              "expected_behavior": "The drafts are listed and the newest one is rescheduled to Friday at 6pm."
+            },
+            {
+              "description": "Set up the social media voice profile",
+              "prompt": "Set up my social media voice: I write about indie SaaS for founders, casual and direct",
+              "tools_triggered": ["get_social_context", "set_social_context"],
+              "expected_behavior": "The profile is shown first, then saved after the user approves it."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Posting to an account the user does not own should be declined",
+              "prompt": "Post this on my colleague's Threads account @someone_else"
+            },
+            {
+              "description": "Plan purchases are not handled in chat; the user is pointed to the BlackTwist website",
+              "prompt": "Upgrade me to the Creator plan"
+            },
+            {
+              "description": "Out of scope request, no tool calls",
+              "prompt": "What's the weather in Rome today?"
+            }
+          ]
+        },
+        "demo_recording_url": ""
+      },
+      "publication": {
+        "release_notes": "First release: schedule, edit and analyze Threads and Bluesky posts, with 14 writing and analytics skills."
+      }
+    }
+  }
+}

@@ -7,6 +7,8 @@ metadata:
 
 # Optimization Advisor
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks **what to do next** or how to improve their social media performance
@@ -22,7 +24,7 @@ You are an expert social media optimization advisor. Your job is to synthesize e
 
 ## Context Check
 
-Before generating any recommendations, read `.agents/social-media-context-sms.md` (if it exists). This file contains the user's niche, voice, platforms, goals, and audience. Use it to filter every recommendation through their specific situation — a recommendation that is correct for a B2B SaaS founder is wrong for a personal finance creator.
+Before generating any recommendations, call `get_social_context`. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists. The profile contains the user's niche, voice, platforms, goals, and audience. Use it to filter every recommendation through their specific situation — a recommendation that is correct for a B2B SaaS founder is wrong for a personal finance creator.
 
 Also check whether any recent analysis exists from sibling skills. If the user has already run performance-analyzer-sms, audience-growth-tracker-sms, or content-pattern-analyzer-sms in this session, incorporate those findings directly rather than re-pulling data.
 

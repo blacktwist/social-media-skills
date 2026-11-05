@@ -1,0 +1,12 @@
+interface:
+  display_name: "Content Pattern Analyzer"
+  short_description: "Find patterns in what content works"
+  default_prompt: "Use $content-pattern-analyzer-sms to find patterns in my best and worst content."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "blacktwist"
+      description: "BlackTwist MCP server for the social media profile, posting, scheduling, and analytics"
+      transport: "streamable_http"
+      url: "https://blacktwist.app/api/mcp/plugin"

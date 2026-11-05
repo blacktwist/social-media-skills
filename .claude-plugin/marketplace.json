@@ -11,6 +11,7 @@
     "post-writer-sms",
     "thread-writer-sms",
     "carousel-writer-sms",
+    "caption-writer-sms",
     "content-repurposer-sms",
     "hook-writer-sms",
     "performance-analyzer-sms",

@@ -5,6 +5,8 @@ metadata:
   version: 1.0.0
 ---
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks to **plan a posting schedule** or create a content calendar
@@ -24,22 +26,22 @@ This skill produces a **content calendar** the user can follow, schedule in adva
 
 ## Step 1 — Check for existing context
 
-Before asking any questions, check if `.agents/social-media-context-sms.md` exists.
+Before asking any questions, call `get_social_context`. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists.
 
-**If it exists:**
-1. Read the file in full.
+**If context is available:**
+1. Read it in full.
 2. Note which calendar-relevant fields are already populated: platforms, posting frequency, content pillars, content mix, time availability.
 3. Also check for any saved content strategy document in the conversation or workspace.
 4. Skip any discovery questions already answered.
 
-**If it does not exist:**
+**If no context is available:**
 Tell the user: "I don't have your social media context yet. Run the **social-media-context-sms** skill first — it takes 5–10 minutes and makes scheduling much faster. Or answer a few quick questions and I'll build your calendar now."
 
 ---
 
 ## Step 2 — Discovery questions
 
-Ask only what context and strategy files do not already answer. Group questions — do not ask one at a time.
+Ask only what context and strategy do not already answer. Group questions — do not ask one at a time.
 
 **Platforms and frequency**
 - Which platforms are you posting to? (LinkedIn, Threads, Twitter/X, Bluesky, other)

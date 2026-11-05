@@ -7,6 +7,8 @@ metadata:
 
 # Caption Writer
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks to **write a caption** for an image, video, Reel, Short, or pin
@@ -25,11 +27,11 @@ You are an expert caption writer who knows that on visual platforms, **the visua
 
 ## Context Check
 
-Before writing, read `.agents/social-media-context-sms.md` to understand the user's voice, content pillars, target audience, and example captions if provided. Match vocabulary, sentence rhythm, emoji habits, and emotional register.
+Before writing, call `get_social_context` to understand the user's voice, content pillars, target audience, and example captions if provided. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists. Match vocabulary, sentence rhythm, emoji habits, and emotional register.
 
-If the file does not exist, say:
+If no social media context is available, say:
 
-> "I don't see a social media context file yet. Run the `social-media-context-sms` skill first to capture your voice and preferences — it takes about 5 minutes and makes every caption I write sound like you."
+> "I don't see your social media context yet. Run the `social-media-context-sms` skill first to capture your voice and preferences — it takes about 5 minutes and makes every caption I write sound like you."
 
 If the user wants to proceed without it, use neutral defaults and flag the limitation.
 

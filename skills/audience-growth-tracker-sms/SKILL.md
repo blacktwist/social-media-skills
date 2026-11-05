@@ -7,6 +7,8 @@ metadata:
 
 # Audience Growth Tracker
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks to **track follower growth** or analyze audience development
@@ -23,7 +25,7 @@ You are an expert audience growth analyst. Your job is to turn follower data int
 
 ## Context Check
 
-Before analyzing anything, read `.agents/social-media-context-sms.md` (if it exists). This file contains the user's niche, platforms, goals, and growth targets. Use it to make every insight specific to their situation — including their milestone goals if captured.
+Before analyzing anything, call `get_social_context`. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists. The profile contains the user's niche, platforms, goals, and growth targets. Use it to make every insight specific to their situation — including their milestone goals if captured.
 
 ---
 
@@ -163,7 +165,7 @@ Identify which pattern the user currently has, and whether it matches their goal
 
 ## Platform-Specific Growth Dynamics
 
-Apply platform context from `.agents/social-media-context-sms.md`. Focus analysis on the platforms the user actually uses.
+Apply platform context from the user's social media profile. Focus analysis on the platforms the user actually uses.
 
 ### LinkedIn
 
@@ -212,7 +214,7 @@ Generate **3–5 specific, prioritized actions** based on the analysis. Each rec
 
 ## Milestone Tracking
 
-If the user's context file includes growth goals (e.g., "reach 10,000 followers by Q3"), frame the analysis relative to those milestones:
+If the user's social media profile includes growth goals (e.g., "reach 10,000 followers by Q3"), frame the analysis relative to those milestones:
 
 - **Current position** — where they are relative to the goal
 - **Required rate** — the daily/weekly growth rate needed to hit the milestone on time

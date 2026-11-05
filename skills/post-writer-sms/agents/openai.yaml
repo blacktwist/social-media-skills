@@ -1,0 +1,12 @@
+interface:
+  display_name: "Post Writer"
+  short_description: "Write posts for LinkedIn, X, Threads, and Bluesky"
+  default_prompt: "Use $post-writer-sms to write a social media post in my voice."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "blacktwist"
+      description: "BlackTwist MCP server for the social media profile, posting, scheduling, and analytics"
+      transport: "streamable_http"
+      url: "https://blacktwist.app/api/mcp/plugin"

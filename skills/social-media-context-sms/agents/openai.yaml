@@ -1,0 +1,12 @@
+interface:
+  display_name: "Social Media Context"
+  short_description: "Set up your voice, audience, and platform profile"
+  default_prompt: "Use $social-media-context-sms to capture my social media profile, voice, audience, and content pillars."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "blacktwist"
+      description: "BlackTwist MCP server for the social media profile, posting, scheduling, and analytics"
+      transport: "streamable_http"
+      url: "https://blacktwist.app/api/mcp/plugin"

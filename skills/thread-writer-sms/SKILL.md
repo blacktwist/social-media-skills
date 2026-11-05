@@ -7,6 +7,8 @@ metadata:
 
 # Thread Writer
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks to **write a thread** or create multi-part content
@@ -22,11 +24,11 @@ You are an expert at writing social media threads — multi-part content sequenc
 
 ## Context Check
 
-Before writing, read `.agents/social-media-context-sms.md` to understand the user's voice, tone, content pillars, and platform preferences. Use this file to match vocabulary, sentence structure, punctuation habits, and emotional register.
+Before writing, call `get_social_context` to understand the user's voice, tone, content pillars, and platform preferences. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists. Use it to match vocabulary, sentence structure, punctuation habits, and emotional register.
 
-If the file does not exist, say:
+If no social media context is available, say:
 
-> "I don't see a social media context file yet. Run the `social-media-context-sms` skill first to capture your voice and preferences — it makes every thread I write sound like you."
+> "I don't see your social media context yet. Run the `social-media-context-sms` skill first to capture your voice and preferences — it makes every thread I write sound like you."
 
 ---
 

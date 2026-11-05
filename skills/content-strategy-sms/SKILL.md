@@ -5,6 +5,8 @@ metadata:
   version: 1.0.0
 ---
 
+Explicit instructions from the user take priority over the guidance in this skill.
+
 ## When to Use
 
 - User asks to **plan a content strategy** or figure out what to post
@@ -24,15 +26,15 @@ This skill produces a **content strategy document** the user can reference when 
 
 ## Step 1 — Check for existing context
 
-Before asking any questions, check if `.agents/social-media-context-sms.md` exists.
+Before asking any questions, call `get_social_context`. If it returns content, use it. If BlackTwist is not connected, fall back to `.agents/social-media-context-sms.md` when the file exists.
 
-**If it exists:**
-1. Read the file in full.
+**If context is available:**
+1. Read it in full.
 2. Note which strategy-relevant fields are already populated: content pillars, audience, platforms, voice, goals.
-3. Skip any discovery questions already answered by the context file.
+3. Skip any discovery questions already answered by the context.
 4. Proceed to Step 2 with that information pre-loaded.
 
-**If it does not exist:**
+**If no context is available:**
 Tell the user: "I don't have your social media context yet. Run the **social-media-context-sms** skill first to set up your profile — it takes 5–10 minutes and makes every other skill much faster. Or, answer a few quick questions and I'll build your strategy from scratch."
 
 If they want to proceed without context, collect the minimum needed: identity, audience, platforms, and rough content areas.
@@ -41,7 +43,7 @@ If they want to proceed without context, collect the minimum needed: identity, a
 
 ## Step 2 — Discovery questions
 
-Ask only what the context file does not already answer. Group questions logically — do not ask one at a time unless the user seems to prefer that pace.
+Ask only what the context does not already answer. Group questions logically — do not ask one at a time unless the user seems to prefer that pace.
 
 **Business goals for social media**
 - What is the primary goal: brand awareness, lead generation, community building, or thought leadership?

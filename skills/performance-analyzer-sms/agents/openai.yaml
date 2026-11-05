@@ -1,0 +1,12 @@
+interface:
+  display_name: "Performance Analyzer"
+  short_description: "Analyze how your posts are performing"
+  default_prompt: "Use $performance-analyzer-sms to analyze my recent post performance."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "blacktwist"
+      description: "BlackTwist MCP server for the social media profile, posting, scheduling, and analytics"
+      transport: "streamable_http"
+      url: "https://blacktwist.app/api/mcp/plugin"
