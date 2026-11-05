@@ -9,4 +9,4 @@ dependencies:
       value: "blacktwist"
       description: "BlackTwist MCP server for the social media profile, posting, scheduling, and analytics"
       transport: "streamable_http"
-      url: "https://blacktwist.app/api/mcp"
+      url: "https://blacktwist.app/api/mcp/plugin"

@@ -3,7 +3,7 @@
   "mcpServers": {
     "blacktwist": {
       "type": "streamable-http",
-      "url": "https://blacktwist.app/api/mcp",
+      "url": "https://blacktwist.app/api/mcp/plugin",
       "extensions": { "com.openai": { "auth": { "type": "oauth", "client": { "mode": "dcr" } } } }
     }
   }
