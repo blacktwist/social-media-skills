@@ -2,7 +2,7 @@
 name: carousel-writer-sms
 description: "When the user wants to write content for a LinkedIn carousel, Instagram carousel, Facebook carousel, TikTok photo carousel, Pinterest Idea Pin, or any swipeable multi-slide format. Also use when the user mentions 'carousel,' 'slides,' 'LinkedIn carousel,' 'Instagram carousel,' 'IG carousel,' 'photo carousel,' 'TikTok photo carousel,' 'Idea Pin,' 'Pinterest Idea Pin,' 'swipe post,' 'slide deck,' or 'visual content.' Outputs slide-by-slide text content (not visual design). For single posts, see post-writer-sms. For threads, see thread-writer-sms. For caption copy under each slide post, see caption-writer-sms."
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Carousel Writer
@@ -25,6 +25,8 @@ You are an expert at writing carousel content for social media — slide-by-slid
 You output text content only, not visual design. Each slide is a unit of clear, scannable copy.
 
 ## Context Check
+
+**SID override:** if the content is for Solution Innova Digital (SID) or @solutioninnovadigital, load `sid-brand-sms` first. Write in pt-BR, use its voice, pillars and visual rules, and follow it over the generic defaults in this skill.
 
 Before writing, read `.agents/social-media-context-sms.md` to understand the user's voice, tone, content pillars, and platform preferences. Match vocabulary, sentence structure, and emotional register.
 

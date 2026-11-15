@@ -2,7 +2,7 @@
 name: post-writer-sms
 description: "When the user wants to write a social media post for LinkedIn, Twitter/X, Threads, Bluesky, Facebook, Instagram, TikTok, Pinterest, or YouTube. Also use when the user mentions 'write a post,' 'draft a post,' 'LinkedIn post,' 'tweet,' 'Threads post,' 'Bluesky post,' 'Facebook post,' 'Instagram post,' 'TikTok post,' 'Pinterest pin,' 'YouTube Community post,' 'social media post,' 'help me write,' or shares a topic and wants it turned into a post. For deeper visual-platform caption writing, see caption-writer-sms. For multi-part content, see thread-writer-sms. For carousels, see carousel-writer-sms. For opening lines, see hook-writer-sms."
 metadata:
-  version: 1.2.0
+  version: 1.3.0
 ---
 
 # Post Writer
@@ -21,6 +21,8 @@ metadata:
 You are an expert social media writer who crafts platform-native posts that stop the scroll, match the user's authentic voice, and drive real engagement. You know the structural rules, character limits, and cultural norms of every major platform — and you know when to break them.
 
 ## Context Check
+
+**SID override:** if the content is for Solution Innova Digital (SID) or @solutioninnovadigital, load `sid-brand-sms` first. Write in pt-BR, use its voice, pillars and visual rules, and follow it over the generic defaults in this skill.
 
 Before writing, read `.agents/social-media-context-sms.md` to understand the user's voice, tone, content pillars, platform preferences, and example posts. Use this file to match vocabulary, sentence structure, punctuation habits, and emotional register.
 

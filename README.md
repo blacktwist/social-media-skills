@@ -9,6 +9,7 @@ AI agent skills for social media content strategy, creation, and analysis across
 | Skill                                                | Description                                                                                                 |
 | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | [social-media-context-sms](skills/social-media-context-sms/) | Captures platform context, audience details, content pillars, and tone preferences used by all other skills |
+| [sid-brand-sms](skills/sid-brand-sms/) | Solution Innova Digital (SID) brand profile: pt-BR voice, audience, 3 pillars, services and reel rules. Used for all SID content |
 
 ### Strategy
 
