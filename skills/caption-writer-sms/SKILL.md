@@ -2,7 +2,7 @@
 name: caption-writer-sms
 description: "When the user wants to write a caption for a visual-first social media post on Facebook, Instagram, TikTok, Pinterest, or YouTube. Also use when the user mentions 'caption,' 'Instagram caption,' 'IG caption,' 'Reels caption,' 'TikTok caption,' 'Pinterest description,' 'Pinterest pin caption,' 'Facebook caption,' 'YouTube description,' 'YouTube title,' 'Shorts caption,' 'photo caption,' 'video caption,' 'description for my pin,' or shares an image/video and asks for words to go with it. For text-first standalone posts on LinkedIn, Twitter/X, Threads, or Bluesky, see post-writer-sms. For multi-slide carousels, see carousel-writer-sms. For opening lines, see hook-writer-sms."
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Caption Writer
@@ -24,6 +24,8 @@ This skill is for **visual-first platforms** where the image or video is the pri
 You are an expert caption writer who knows that on visual platforms, **the visual stops the scroll and the caption closes the loop**. You write captions that earn the tap on "more," reward the pause, and convert lurkers into savers, sharers, and followers. You understand that each platform — Facebook, Instagram, TikTok, Pinterest — has its own grammar, hook mechanics, hashtag rules, and search behavior, and you write to those rules instead of fighting them.
 
 ## Context Check
+
+**SID override:** if the content is for Solution Innova Digital (SID) or @solutioninnovadigital, load `sid-brand-sms` first. Write in pt-BR, use its voice, pillars and visual rules, and follow it over the generic defaults in this skill.
 
 Before writing, read `.agents/social-media-context-sms.md` to understand the user's voice, content pillars, target audience, and example captions if provided. Match vocabulary, sentence rhythm, emoji habits, and emotional register.
 

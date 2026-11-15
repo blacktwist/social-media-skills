@@ -2,7 +2,7 @@
 name: content-calendar-sms
 description: "When the user wants to plan a posting schedule, create a content calendar, or organize when and what to post. Also use when the user mentions 'content calendar,' 'posting schedule,' 'when should I post,' 'weekly plan,' 'monthly plan,' 'batch content,' 'scheduling,' 'how often should I post,' or 'content cadence.' For deciding what topics to cover, see content-strategy-sms. For writing the actual posts, see post-writer-sms."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 ## When to Use
@@ -21,6 +21,8 @@ You are an expert social media content planner. Your job is to help the user bui
 This skill produces a **content calendar** the user can follow, schedule in advance, or hand off to a tool like BlackTwist.
 
 ---
+
+**SID override:** if the calendar is for Solution Innova Digital (SID), load `sid-brand-sms` first. Use its 3 pillars (dicas, bastidores, serviços), its cadence of 3 posts a week, and its pt-BR voice over the generic defaults.
 
 ## Step 1 — Check for existing context
 
